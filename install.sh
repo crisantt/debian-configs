@@ -1,5 +1,5 @@
 ## packages essentials ##
-sudo apt update && sudo apt upgrade
+sudo apt update && sudo apt upgrade -y
 sudo apt install -y bspwm sxhkd feh picom alacritty rofi xclip dunst polybar thunar pavucontrol
 
 ## XORG ##
