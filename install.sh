@@ -1,6 +1,9 @@
 ## packages essentials ##
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y bspwm sxhkd feh picom alacritty rofi xclip dunst polybar thunar pavucontrol
+sudo apt install -y feh picom alacritty rofi xclip dunst polybar thunar pavucontrol
+
+## Wayland ##
+# sudo apt install wayland-protocols xwayland sway
 
 ## XORG ##
 sudo apt install -y xserver-xorg-core xserver-xorg-input-libinput xserver-xorg-video-intel x11-xserver-utils xinit
