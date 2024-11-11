@@ -133,6 +133,7 @@ done
 
 echo "SETUP DONE"
 echo "REBOOT YOUR PC, NOW!!"
+echo "Use startx command (for xorg only)"
 
 ### Packages that I'm not sure of ###
 
