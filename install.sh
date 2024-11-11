@@ -68,27 +68,37 @@ apt install make gcc libtool wget -y
 apt-get install ninja-build gettext cmake unzip curl build-essential -y
 apt install clangd openjdk-17-jdk -y
 
+# Installs Thorium Browser
+cd /home/$username/github
+wget https://github.com/Alex313031/thorium/releases/download/M128.0.6613.189/thorium-browser_128.0.6613.189_SSE3.deb
+apt install ./thorium-browser_128.0.6613.189_SSE3.deb -y
+
 ## fonts & appearance ("NO TOFU") ##
 sudo apt install lxappearance fonts-dejavu fonts-font-awesome fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji fonts-hack-ttf -y
 cd /home/$username
 feh --bg-fill $(find ~/Pictures/Wallpapers -type f | shuf -n 1)
 mv /home/$username/.fehbg /home/$username/Pictures/Wallpapers/.fehbg
 cd /home/$username/.icons
-wget https://github.com/catppuccin/cursors/releases/download/v1.0.1/catppuccin-mocha-lavender-cursors.zip
-unzip catppuccin-mocha-lavender-cursors.zip
+wget https://github.com/catppuccin/cursors/releases/download/v1.0.1/catppuccin-mocha-lavender-cursors.zip -O cml.zip
 wget https://github.com/rose-pine/gtk/releases/download/v2.1.0/rose-pine-icons.tar.gz
+unzip cml.zip
 tar -zvxf rose-pine-icons.tar.tar.gz
 mv -R /home/$username/.icons/icons/* /home/$username/.icons/
-mv -R /home/$username/.icons/catppuccin-mocha-lavender-cursors/* /home/$username/.icons/
+mv -R /home/$username/.icons/cml/* /home/$username/.icons/
+rm -rf icons cml
+rm -rf cml.zip
 cd /home/$username/.themes
 wget https://github.com/rose-pine/gtk/releases/download/v2.1.0/gtk3.tar.gz
-tar -zvxf rp.tar.gz
+tar -zvxf gtk3.tar.gz
 mv -R /home/$username/.themes/gtk3/* /home/$username/.themes/
+rm -rf gtk3.tar.gz
+rm -rf gtk3
 cd /home/$username/.fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Mononoki.zip
 unzip FiraCode.zip
 unzip Mononoki.zip
+rm -rf Firacode.zip Mononoki.zip
 fc-cache -fv
 
 # Installs Neovim
