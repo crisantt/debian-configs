@@ -78,7 +78,7 @@ unzip catppuccin-mocha-lavender-cursors.zip
 wget https://github.com/rose-pine/gtk/releases/download/v2.1.0/rose-pine-icons.tar.gz
 tar -zvxf rose-pine-icons.tar.tar.gz
 mv -R /home/$username/.icons/icons/* /home/$username/.icons/
-mv -R /home/$username/.icons/cml/* /home/$username/.icons/
+mv -R /home/$username/.icons/catppuccin-mocha-lavender-cursors/* /home/$username/.icons/
 cd /home/$username/.themes
 wget https://github.com/rose-pine/gtk/releases/download/v2.1.0/gtk3.tar.gz
 tar -zvxf rp.tar.gz
@@ -88,6 +88,7 @@ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.z
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Mononoki.zip
 unzip FiraCode.zip
 unzip Mononoki.zip
+fc-cache -fv
 cd $builddir
 
 ### Setup Window Manager
