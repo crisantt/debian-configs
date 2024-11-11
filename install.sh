@@ -103,6 +103,7 @@ select wm in "${wm_option[@]}"; do
 done
 
 echo "SETUP DONE"
+echo "REBOOT YOUR PC, NOW!!"
 
 ### Packages that I'm not sure of ###
 
