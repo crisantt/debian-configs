@@ -63,8 +63,9 @@ done
 apt install feh picom rofi xclip dunst thunar firefox-esr pavucontrol -y
 
 ## developer packages ##
-apt install build-essential libx11-dev libxft-dev libxinerama-dev libxrandr-dev libxtst-dev libpango1.0-dev libxpm-dev -y
-apt install make gcc libtool wget curl unzip -y
+apt install libx11-dev libxft-dev libxinerama-dev libxrandr-dev libxtst-dev libpango1.0-dev libxpm-dev -y
+apt install make gcc libtool wget -y
+apt-get install ninja-build gettext cmake unzip curl build-essential -y
 apt install clangd openjdk-17-jdk -y
 
 ## fonts & appearance ("NO TOFU") ##
@@ -89,7 +90,14 @@ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Mononoki.z
 unzip FiraCode.zip
 unzip Mononoki.zip
 fc-cache -fv
-cd $builddir
+
+# Installs Neovim
+cd /home/$username/github
+git clone https://github.com/neovim/neovim.git
+cd neovim
+git checkout tags/stable
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+make install
 
 ### Setup Window Manager
 wm_option=("dwm" "bspwm")
