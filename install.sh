@@ -82,7 +82,7 @@ cd /home/$username/.icons
 wget https://github.com/catppuccin/cursors/releases/download/v1.0.1/catppuccin-mocha-lavender-cursors.zip -O cml.zip
 wget https://github.com/rose-pine/gtk/releases/download/v2.1.0/rose-pine-icons.tar.gz
 unzip cml.zip
-tar -zvxf rose-pine-icons.tar.tar.gz
+tar -zvxf rose-pine-icons.tar.gz
 mv -R /home/$username/.icons/icons/* /home/$username/.icons/
 mv -R /home/$username/.icons/cml/* /home/$username/.icons/
 rm -rf icons cml
