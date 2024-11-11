@@ -1,6 +1,6 @@
 # Debian Config
 
-### Only use this to a freshly installed Debian (Thanks)
+### Only use this to a freshly MINIMAL installed Debian (Thanks)
 ```
 git clone https://github.com/crscrused/debian-configs.git
 cd debian-configs
