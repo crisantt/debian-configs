@@ -69,8 +69,26 @@ apt install clangd openjdk-17-jdk -y
 
 ## fonts & appearance ("NO TOFU") ##
 sudo apt install lxappearance fonts-dejavu fonts-font-awesome fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji fonts-hack-ttf -y
+cd /home/$username
 feh --bg-fill $(find ~/Pictures/Wallpapers -type f | shuf -n 1)
 mv /home/$username/.fehbg /home/$username/Pictures/Wallpapers/.fehbg
+cd /home/$username/.icons
+wget https://github.com/catppuccin/cursors/releases/download/v1.0.1/catppuccin-mocha-lavender-cursors.zip
+unzip catppuccin-mocha-lavender-cursors.zip
+wget https://github.com/rose-pine/gtk/releases/download/v2.1.0/rose-pine-icons.tar.gz
+tar -zvxf rose-pine-icons.tar.tar.gz
+mv -R /home/$username/.icons/icons/* /home/$username/.icons/
+mv -R /home/$username/.icons/cml/* /home/$username/.icons/
+cd /home/$username/.themes
+wget https://github.com/rose-pine/gtk/releases/download/v2.1.0/gtk3.tar.gz
+tar -zvxf rp.tar.gz
+mv -R /home/$username/.themes/gtk3/* /home/$username/.themes/
+cd /home/$username/.fonts
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Mononoki.zip
+unzip FiraCode.zip
+unzip Mononoki.zip
+cd $builddir
 
 ### Setup Window Manager
 wm_option=("dwm" "bspwm")
