@@ -15,7 +15,7 @@ apt upgrade -y
 
 ## Create Directories & Files ##
 cd $builddir
-mkdir -p /home/$username/github
+mkdir -p /home/$username/github/suckless
 mkdir -p /home/$username/.config
 mkdir -p /home/$username/.fonts
 mkdir -p /home/$username/.themes
@@ -60,12 +60,12 @@ select gpu in "${gpu_option[@]}"; do
 done
 
 ## packages essentials ##
-apt install feh picom rofi xclip dunst thunar firefox-esr pavucontrol -y
+apt install feh picom rofi xclip dunst thunar pavucontrol -y
 
 ## developer packages ##
 apt install libx11-dev libxft-dev libxinerama-dev libxrandr-dev libxtst-dev libpango1.0-dev libxpm-dev libncurses5-dev -y
-apt install make gcc libtool wget -y
-apt-get install ninja-build gettext cmake unzip curl build-essential -y
+apt install make gcc libtool wget  -y
+apt-get install ninja-build gettext cmake unzip tar curl build-essential -y
 apt install clangd openjdk-17-jdk -y
 
 # Installs Thorium Browser
@@ -83,14 +83,14 @@ wget https://github.com/catppuccin/cursors/releases/download/v1.0.1/catppuccin-m
 wget https://github.com/rose-pine/gtk/releases/download/v2.1.0/rose-pine-icons.tar.gz
 unzip cml.zip
 tar -zvxf rose-pine-icons.tar.gz
-mv -R /home/$username/.icons/icons/* /home/$username/.icons/
-mv -R /home/$username/.icons/cml/* /home/$username/.icons/
+mv /home/$username/.icons/icons/* /home/$username/.icons/
+mv /home/$username/.icons/cml/* /home/$username/.icons/
 rm -rf icons cml
 rm -rf cml.zip
 cd /home/$username/.themes
 wget https://github.com/rose-pine/gtk/releases/download/v2.1.0/gtk3.tar.gz
 tar -zvxf gtk3.tar.gz
-mv -R /home/$username/.themes/gtk3/* /home/$username/.themes/
+mv /home/$username/.themes/gtk3/* /home/$username/.themes/
 rm -rf gtk3.tar.gz
 rm -rf gtk3
 cd /home/$username/.fonts
@@ -98,7 +98,8 @@ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.z
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Mononoki.zip
 unzip FiraCode.zip
 unzip Mononoki.zip
-rm -rf Firacode.zip Mononoki.zip
+rm -rf Firacode.zip 
+rm -rf Mononoki.zip
 fc-cache -fv
 
 # Installs Neovim
@@ -115,10 +116,13 @@ wm_option=("dwm" "bspwm")
 select wm in "${wm_option[@]}"; do
   if [ "$wm" = "dwm" ]; then
     # DWM
-    apt install suckless-tools
-    cd /home/$username/github
+    cd /home/$username/github/suckless
     git clone https://git.suckless.org/dwm
     cd dwm
+    make clean install
+    cd /home/$username/github/suckless
+    git clone https://git.suckless.org/st
+    cd st
     make clean install
     cd /home/$username
     echo "~/Pictures/Wallpapers/.fehbg" >> /home/$username/.xinitrc
@@ -142,7 +146,7 @@ select wm in "${wm_option[@]}"; do
 done
 
 echo "SETUP DONE"
-echo "REBOOT YOUR PC, NOW!!"
+echo "REBOOT YOUR PC, NOW!! (if you want)"
 echo "Use startx command (for xorg only)"
 
 ### Packages that I'm not sure of ###
