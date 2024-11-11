@@ -99,6 +99,7 @@ git checkout tags/stable
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 make install
 
+cd $builddir
 ### Setup Window Manager
 wm_option=("dwm" "bspwm")
 select wm in "${wm_option[@]}"; do
@@ -107,6 +108,7 @@ select wm in "${wm_option[@]}"; do
     apt install suckless-tools
     cd /home/$username/github
     git clone https://git.suckless.org/dwm
+    cd dwm
     make clean install
     cd /home/$username
     echo "~/Pictures/Wallpapers/.fehbg" >> /home/$username/.xinitrc
