@@ -6,7 +6,7 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-username=$(id -u -n 1000)
+username=$(whoami)
 builddir=$(pwd)
 
 ## UPDATE ##
@@ -14,13 +14,16 @@ apt update
 apt upgrade -y
 
 ## Create Directories & Files ##
+cd $builddir
 mkdir -p /home/$username/github
 mkdir -p /home/$username/.config
 mkdir -p /home/$username/.fonts
 mkdir -p /home/$username/.themes
 mkdir -p /home/$username/.icons
 mkdir -p /home/$username/Pictures/Wallpapers
+cp -R dotwallpapers/* /home/$username/Pictures/Wallpapers/
 touch /home/$username/.xinitrc
+chown -R $username:$username /home/$username
 
 ## Display Server Setup ##
 echo "Please Select Your Display Server"
@@ -38,7 +41,7 @@ select dpserver in "${dpserver_option[@]}"; do
 done
 
 ## GPU Drivers Installation ##
-echo "Please Select Your GPU Driver"
+echo "Please Select Your GPU Driver/Tools"
 gpu_option=("intel" "amd" "nvidia-open" "nvidia-proprietary")
 select gpu in "${gpu_option[@]}"; do
   if [ "$gpu" = "intel" ]; then
@@ -56,8 +59,6 @@ select gpu in "${gpu_option[@]}"; do
   fi
 done
 
-clear
-
 ## packages essentials ##
 apt install feh picom rofi xclip dunst thunar firefox-esr pavucontrol -y
 
@@ -68,6 +69,8 @@ apt install clangd openjdk-17-jdk -y
 
 ## fonts & appearance ("NO TOFU") ##
 sudo apt install lxappearance fonts-dejavu fonts-font-awesome fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji fonts-hack-ttf -y
+feh --bg-fill $(find ~/Pictures/Wallpapers -type f | shuf -n 1)
+mv /home/$username/.fehbg /home/$username/Pictures/Wallpapers/.fehbg
 
 ### Setup Window Manager
 wm_option=("dwm" "bspwm")
@@ -77,6 +80,7 @@ select wm in "${wm_option[@]}"; do
     apt install suckless-tools
     cd /home/$username/github
     git clone https://git.suckless.org/dwm
+    make clean install
     cd /home/$username
     echo "~/Pictures/Wallpapers/.fehbg" >> /home/$username/.xinitrc
     echo "picom -fb &" >> /home/$username/.xinitrc
@@ -93,7 +97,7 @@ select wm in "${wm_option[@]}"; do
     echo "~/Pictures/Wallpapers/.fehbg" >> /home/$username/.xinitrc
     echo "picom -fb &" >> /home/$username/.xinitrc
     echo "dunst &" >> /home/$username/.xinitrc
-    echo "exec dwm" >> /home/$username/.xinitrc
+    echo "exec bspwm" >> /home/$username/.xinitrc
     break
   fi
 done
