@@ -19,6 +19,7 @@ mkdir -p /home/$username/.config
 mkdir -p /home/$username/.fonts
 mkdir -p /home/$username/.themes
 mkdir -p /home/$username/.icons
+mkdir -p /home/$username/Pictures/Wallpapers
 touch /home/$username/.xinitrc
 
 ## Display Server Setup ##
