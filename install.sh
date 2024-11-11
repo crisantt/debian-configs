@@ -6,7 +6,7 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-username=$(whoami)
+username=$(id -u -n 1000)
 builddir=$(pwd)
 
 ## UPDATE ##
