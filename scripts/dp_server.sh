@@ -1,5 +1,4 @@
 #!/bin/bash
-
 ## Display Server Setup ##
 echo "Please Select Your Display Server"
 dpserver_option=("xorg" "wayland")
