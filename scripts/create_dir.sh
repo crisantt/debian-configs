@@ -1,5 +1,4 @@
 #!/bin/bash
-
 ## Create Directories & Files ##
 mkdir -p ~/github/suckless
 mkdir -p ~/softwares
