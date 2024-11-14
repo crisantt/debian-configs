@@ -1,5 +1,4 @@
 #!/bin/bash
-
 ## GPU Drivers Installation ##
 echo "Please Select Your GPU Driver/Tools"
 gpu_option=("intel" "amd" "nvidia-open" "nvidia-proprietary")
