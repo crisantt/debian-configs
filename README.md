@@ -8,7 +8,7 @@ cd debian-configs
 sudo bash install.sh
 ```
 ## Autostart of .xinitrc when you log in
-#### paste it in your ~/.bashrc
+#### Paste it in your ~/.bashrc
 ```
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
   exec startx
