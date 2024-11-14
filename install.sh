@@ -38,6 +38,9 @@ bash /home/$username/github/debian-configs/scripts/text-editor.sh
 ### Setup Window Manager
 bash /home/$username/github/debian-configs/scripts/window-managers.sh
 
+## Docker ##
+bash /home/$username/github/debian-configs/scripts/docker.sh
+
 echo "THE SETUP IS DONE!!"
 ### Packages that I'm not sure of ###
 
