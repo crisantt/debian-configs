@@ -14,7 +14,14 @@ apt update
 apt upgrade -y
 
 ## Create Directories & Files ##
-bash /home/$username/github/debian-configs/scripts/create_dir.sh
+cd $builddir
+mkdir -p /home/$username/github/suckless
+mkdir -p /home/$username/softwares
+mkdir -p /home/$username/.config
+mkdir -p /home/$username/.fonts
+mkdir -p /home/$username/.themes
+mkdir -p /home/$username/.icons
+mkdir -p /home/$username/Pictures/Wallpapers
 chown -R $username:$username /home/$username
 
 ## Display Server Setup ##
