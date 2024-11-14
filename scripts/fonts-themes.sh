@@ -25,3 +25,8 @@ unzip Mononoki.zip
 rm -rf Firacode.zip 
 rm -rf Mononoki.zip
 fc-cache -fv
+cd ~/
+
+## Starhip
+curl -sS https://starship.rs/install.sh | sh
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
