@@ -1,5 +1,4 @@
 #!/bin/bash
-
 ### Setup Window Manager ###
 wm_option=("dwm" "bspwm")
 select wm in "${wm_option[@]}"; do
