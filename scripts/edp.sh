@@ -1,5 +1,4 @@
 #!/bin/bash
-
 ## packages essentials ##
 apt install feh picom rofi xclip dunst thunar pavucontrol -y
 ## developer packages ##
