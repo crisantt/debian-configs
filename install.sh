@@ -14,16 +14,7 @@ apt update
 apt upgrade -y
 
 ## Create Directories & Files ##
-cd $builddir
-mkdir -p /home/$username/github/suckless
-mkdir -p /home/$username/.config
-mkdir -p /home/$username/.fonts
-mkdir -p /home/$username/.themes
-mkdir -p /home/$username/.icons
-mkdir -p /home/$username/Pictures/Wallpapers
-cp -R dotwallpapers/* /home/$username/Pictures/Wallpapers/
-touch /home/$username/.xinitrc
-chown -R $username:$username /home/$username
+bash /home/$username/github/debian-configs/scripts/create_dir.sh
 
 ## Display Server Setup ##
 echo "Please Select Your Display Server"
