@@ -15,49 +15,16 @@ apt upgrade -y
 
 ## Create Directories & Files ##
 bash /home/$username/github/debian-configs/scripts/create_dir.sh
+chown -R $username:$username /home/$username
 
 ## Display Server Setup ##
-echo "Please Select Your Display Server"
-dpserver_option=("xorg" "wayland")
-select dpserver in "${dpserver_option[@]}"; do
-  if [ "$dpserver" = "xorg" ]; then
-    ## XORG ##
-    apt install xserver-xorg-core xserver-xorg-input-libinput x11-xserver-utils xinit -y
-    break
-  elif [ "$dpserver" = "wayland" ]; then
-    ## Wayland ##
-    apt install wayland-protocols xwayland -y
-    break
-  fi
-done
+bash /home/$username/github/debian-configs/scripts/dp_server.sh
 
 ## GPU Drivers Installation ##
-echo "Please Select Your GPU Driver/Tools"
-gpu_option=("intel" "amd" "nvidia-open" "nvidia-proprietary")
-select gpu in "${gpu_option[@]}"; do
-  if [ "$gpu" = "intel" ]; then
-    apt install xserver-xorg-video-intel -y
-    break
-  elif [ "$gpu" = "amd" ]; then
-    apt install xserver-xorg-video-amdgpu -y
-    break
-  elif [ "$gpu" = "nvidia-open" ]; then
-    apt install xserver-xorg-video-nouveau -y
-    break
-  elif [ "$gpu" = "nvidia-proprietary" ]; then
-    apt install nvidia-cuda-dev nvidia-cuda-toolkit -y
-    break
-  fi
-done
+bash /home/$username/github/debian-configs/scripts/drivers.sh
 
-## packages essentials ##
-apt install feh picom rofi xclip dunst thunar pavucontrol -y
-
-## developer packages ##
-apt install libx11-dev libxft-dev libxinerama-dev libxrandr-dev libxtst-dev libpango1.0-dev libxpm-dev libncurses5-dev -y
-apt install make gcc libtool wget  -y
-apt-get install ninja-build gettext cmake unzip tar curl build-essential -y
-apt install clangd openjdk-17-jdk -y
+## essentials && developer packages ##
+bash /home/$username/github/debian-configs/scripts/edp.sh
 
 # Installs Thorium Browser
 cd /home/$username/github
@@ -66,9 +33,6 @@ apt install ./thorium-browser_128.0.6613.189_SSE3.deb -y
 
 ## fonts & appearance ("NO TOFU") ##
 sudo apt install lxappearance fonts-dejavu fonts-font-awesome fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji fonts-hack-ttf -y
-cd /home/$username
-feh --bg-fill $(find ~/Pictures/Wallpapers -type f | shuf -n 1)
-mv /home/$username/.fehbg /home/$username/Pictures/Wallpapers/.fehbg
 cd /home/$username/.icons
 wget https://github.com/catppuccin/cursors/releases/download/v1.0.1/catppuccin-mocha-lavender-cursors.zip -O cml.zip
 wget https://github.com/rose-pine/gtk/releases/download/v2.1.0/rose-pine-icons.tar.gz
