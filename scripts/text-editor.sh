@@ -1,5 +1,5 @@
 #!/bin/bash
-
+## Install Neovim ##
 cd ~/github
 git clone https://github.com/neovim/neovim.git
 cd neovim
