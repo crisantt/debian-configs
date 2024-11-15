@@ -5,7 +5,7 @@
 mkdir -p ~/github && cd ~/github
 git clone https://github.com/crisantt/debian-configs.git
 cd debian-configs
-sudo bash install.sh
+bash install.sh
 ```
 ## Autostart of .xinitrc when you log in
 #### Paste it in your ~/.bashrc
