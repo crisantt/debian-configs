@@ -3,7 +3,7 @@
 ### Only use this to a fresh MINIMAL installed Debian (Thanks)
 ```
 mkdir -p ~/github && cd ~/github
-git clone https://github.com/crscrused/debian-configs.git
+git clone https://github.com/crisantt/debian-configs.git
 cd debian-configs
 sudo bash install.sh
 ```
