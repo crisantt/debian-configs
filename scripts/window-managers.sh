@@ -8,15 +8,15 @@ select wm in "${wm_option[@]}"; do
     cd /home/$username/github/suckless
     git clone https://git.suckless.org/dwm
     cd dwm
-    make clean install
+    sudo make clean install
     cd /home/$username/github/suckless
     git clone https://git.suckless.org/st
     cd st
-    make clean install
+    sudo make clean install
     cd /home/$username/github/suckless
     git clone https://git.suckless.org/dmenu
     cd dmenu
-    make clean install
+    sudo make clean install
     cd /home/$username/
     echo "picom -fb &" >> /home/$username/.xinitrc
     echo "dunst &" >> /home/$username/.xinitrc
@@ -24,7 +24,7 @@ select wm in "${wm_option[@]}"; do
     break
   elif [ "$wm" = "bspwm" ]; then
     # BSPWM
-    apt install bspwm sxhkd polybar
+    sudo apt install bspwm sxhkd polybar
     mkdir -p /home/$username/.config/bspwm /home/$username/.config/sxhkd
     cp /usr/share/doc/bspwm/examples/bspwmrc /home/$username/.config/bspwm/
     cp /usr/share/doc/bspwm/examples/sxhkdrc /home/$username/.config/sxhkd/
