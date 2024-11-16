@@ -16,6 +16,7 @@ fi
 ```
 ### Feh Command
 - Use this to generate .fehbg
+- Add .fehbg to .xinitrc as ~/.fehbg &
 ```
 cp -R ~/github/debian-configs/dotwallpapers/* ~/Pictures/Wallpapers
 feh --bg-fill $(find ~/Pictures/Wallpapers -type f | shuf -n 1)
