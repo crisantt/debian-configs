@@ -1,6 +1,6 @@
 # Debian Config
 
-### Only use this to a fresh MINIMAL installed Debian (Thanks)
+### Only use this to a freshly installed Debian with no Desktop Environment(Thanks)
 ```
 mkdir -p ~/github && cd ~/github
 git clone https://github.com/crisantt/debian-configs.git
