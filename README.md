@@ -1,20 +1,20 @@
 # Debian Config
 
-### Only use this to a freshly installed Debian with no Desktop Environment(Thanks)
+#### Only use this to a freshly installed Debian with no Desktop Environment(Thanks)
 ```
 mkdir -p ~/github && cd ~/github
 git clone https://github.com/crisantt/debian-configs.git
 cd debian-configs
 bash install.sh
 ```
-## Autostart of .xinitrc when you log in
+### Autostart of .xinitrc when you log in
 - Paste it in your ~/.bashrc
 ```
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
   exec startx
 fi
 ```
-### Feh Command
+#### Feh Command
 - Use this to generate .fehbg
 - Add .fehbg to .xinitrc as ~/.fehbg &
 ```
