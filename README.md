@@ -15,7 +15,7 @@ if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
 fi
 ```
 ### Feh Command
-- Use this to generate wallpaper
+- Use this to generate .fehbg
 ```
 cp -R ~/github/debian-configs/dotwallpapers/* ~/Pictures/Wallpapers
 feh --bg-fill $(find ~/Pictures/Wallpapers -type f | shuf -n 1)
