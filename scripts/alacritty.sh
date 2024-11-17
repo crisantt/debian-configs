@@ -5,6 +5,7 @@ sudo apt install gzip scdoc cmake g++ pkg-config libfreetype6-dev libfontconfig1
 git clone https://github.com/alacritty/alacritty.git
 cd alacritty
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source ~/.bashrc
 rustup override set stable
 rustup update stable
 cargo build --release
