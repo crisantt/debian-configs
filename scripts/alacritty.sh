@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/softwares
+cd ~/github
 sudo apt install gzip scdoc cmake g++ pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 -y
 git clone https://github.com/alacritty/alacritty.git
 cd alacritty
