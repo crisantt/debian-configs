@@ -1,0 +1,16 @@
+# My BASH
+if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+  exec startx
+fi
+
+eval "$(starship init bash)"
+. "$HOME/.cargo/env"
+source ~/.bash_completion/alacritty
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/go/bin
+export PATH=$PATH:~/github/yazi/target/release
+# custom alias
+alias vim='nvim'
+alias ll='ls -l'
+alias la='ls -a'
+alias AR='flatpak run net.audiorelay.AudioRelay'
