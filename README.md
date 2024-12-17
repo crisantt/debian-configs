@@ -3,7 +3,7 @@
 #### Only use this to a freshly installed Debian with no Desktop Environment(Thanks)
 ```
 mkdir -p ~/github && cd ~/github
-git clone https://github.com/crisantt/debian-configs.git
+git clone https://github.com/crisantt/debian-xorg.git
 cd debian-configs
 bash install.sh
 ```
